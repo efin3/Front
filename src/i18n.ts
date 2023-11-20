@@ -9,6 +9,7 @@ const resources = {
   en: {
     translation: {
       ...ComponentTranslations.en.translation,
+      Enroll: "Enroll",
       Show: "Show",
       Agenda: "Agenda",
       ReadAll: "Read all",
@@ -575,6 +576,7 @@ const resources = {
   pl: {
     translation: {
       ...ComponentTranslations.pl.translation,
+      Enroll: "Zapisać",
       Show: "Zobacz",
       Agenda: "Program",
       ReadAll: "Odznacz wszystkie",

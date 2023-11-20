@@ -12,6 +12,7 @@ import routeRoutes from "@/components/Routes/routes";
 interface CourseAccessButtonProps {
   course: API.Course;
   onRequestAccess: () => void;
+  isFree?: boolean;
 }
 
 const StyledButton = styled(Button)`
@@ -22,6 +23,7 @@ const StyledButton = styled(Button)`
 const CourseAccessButton: React.FC<CourseAccessButtonProps> = ({
   course,
   onRequestAccess,
+  isFree,
 }) => {
   const { t } = useTranslation();
   const { push } = useHistory();
@@ -53,6 +55,9 @@ const CourseAccessButton: React.FC<CourseAccessButtonProps> = ({
   );
 
   if (!currentCourseAccess) {
+    if (isFree) {
+      return <Button style={{ marginTop: "0.5rem" }}>{t("Enroll")}</Button>;
+    }
     return (
       <>
         <StyledButton mode="secondary" onClick={onRequestAccess}>
@@ -89,12 +94,14 @@ type Props = {
   course: API.Course;
   userOwnThisCourse: boolean | undefined;
   onRequestAccess: () => void;
+  isFree?: boolean;
 };
 
 const CourseDetailsSidebarButtons: React.FC<Props> = ({
   course,
   userOwnThisCourse,
   onRequestAccess,
+  isFree,
 }) => {
   const { cart, user } = useContext(EscolaLMSContext);
   const { t } = useTranslation();
@@ -136,7 +143,11 @@ const CourseDetailsSidebarButtons: React.FC<Props> = ({
   }
   if (user.value && course.product) {
     return (
-      <CourseAccessButton course={course} onRequestAccess={onRequestAccess} />
+      <CourseAccessButton
+        course={course}
+        onRequestAccess={onRequestAccess}
+        isFree={isFree}
+      />
     );
   }
   if (!course.product) {
@@ -146,8 +157,9 @@ const CourseDetailsSidebarButtons: React.FC<Props> = ({
     <Button
       onClick={() => push(`/login?referrer=/courses/${course.id}`)}
       mode="secondary"
+      style={isFree ? { marginTop: "0.5rem" } : undefined}
     >
-      {t("Buy Course")}
+      {isFree ? t("Enroll") : t("Buy Course")}
     </Button>
   );
 };
