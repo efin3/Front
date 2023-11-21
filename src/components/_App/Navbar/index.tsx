@@ -52,11 +52,13 @@ const StyledHeader = styled.header`
       width: 100%;
       height: auto;
       transition: opacity 0.25s;
+
       &:hover {
         opacity: 0.55;
       }
     }
   }
+
   .menu-container {
     display: flex;
     justify-content: flex-end;
@@ -73,15 +75,18 @@ const StyledHeader = styled.header`
         margin-left: 15px;
       }
     }
+
     .navigation {
       display: flex;
       justify-content: flex-end;
       align-items: center;
       margin: 0 24px;
       column-gap: 20px;
+
       .Dropdown-root {
         min-width: 105px;
       }
+
       @media (max-width: 1366px) {
         margin: 0 50px;
       }
@@ -93,20 +98,24 @@ const StyledHeader = styled.header`
         margin: 0 30px;
         column-gap: 30px;
       }
+
       .Dropdown-menu {
         overflow-y: unset;
         max-height: unset;
       }
     }
   }
+
   .logo {
     width: auto;
     height: 37px;
   }
+
   .user-container {
     display: flex;
     justify-content: flex-end;
     align-items: center;
+
     .user-details {
       display: flex;
       align-items: center;
@@ -114,22 +123,26 @@ const StyledHeader = styled.header`
       column-gap: 10px;
       margin-right: 21px;
       text-decoration: none;
+
       &:hover {
         p {
           color: ${({ theme }) => theme.primaryColor};
         }
       }
+
       .name {
         min-width: 100px;
         margin: 0;
       }
     }
   }
+
   .icons-container {
     display: flex;
     justify-content: flex-end;
     align-items: center;
     column-gap: 28px;
+
     button {
       appearance: none;
       outline: none;
@@ -138,14 +151,17 @@ const StyledHeader = styled.header`
       padding: 0;
       margin: 0;
       cursor: pointer;
+
       &.cart-icon {
         position: relative;
         top: -1px;
+
         svg {
           path {
             transition: fill 0.25s;
           }
         }
+
         &:hover {
           svg {
             path {
@@ -153,6 +169,7 @@ const StyledHeader = styled.header`
             }
           }
         }
+
         span {
           position: absolute;
           right: -5px;
@@ -166,28 +183,34 @@ const StyledHeader = styled.header`
       }
     }
   }
+
   .not-logged-container {
     display: flex;
     justify-content: flex-end;
     align-items: center;
     column-gap: 10px;
     margin-right: 20px;
+
     .divider {
       height: 15px;
       width: 2px;
       background-color: #4a4a4a;
       opacity: 0.4;
     }
+
     a {
       text-decoration: none;
+
       p {
         font-weight: 700;
+
         &:hover {
           color: ${({ theme }) => theme.primaryColor};
         }
       }
     }
   }
+
   .user-avatar {
     margin-right: 16px;
   }
@@ -423,6 +446,7 @@ const Navbar = () => {
                 })
               }
               options={[
+                { label: "Português", value: "ptBR" },
                 { label: "Polski", value: "pl" },
                 { label: "English", value: "en" },
               ]}
