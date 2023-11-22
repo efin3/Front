@@ -386,7 +386,7 @@ const resources = {
       },
       Notifications: {
         EscolaLmsTopicFinishedTemplateEvent: "Tópico finalizado",
-        NoNotifications: "Você não tem notifições",
+        NoNotifications: "Você não tem notificações",
         UserLogged: "Usuário autenticado",
         list: "Lista",
         PermissionRoleRemoved: "Cargo removido",
@@ -397,7 +397,7 @@ const resources = {
         SettingPackageConfigUpdated: "Pacote de configurações atualizado",
         CourseTutorAssigned: "Tutor de curso atribuído",
         CourseStarted: "Curso iniciado",
-        // NEW TRANLATIONS
+        // NEW TRANSLATIONS
         // STATIONARY EVENTS
         "EscolaLms\\StationaryEvents\\Events\\StationaryEventAssigned":
           "Você foi atribuído ao evento estacionário {{name}}",
@@ -430,7 +430,7 @@ const resources = {
         "EscolaLms\\Payments\\Events\\PaymentFailed":
           "Pagamento pelo {{name}} produto pela quantia {{amount}} R$ falhou",
         "EscolaLms\\Payments\\Events\\PaymentRegistered":
-          "Pagamento pela quantia {{amount}} R$ reqistrado",
+          "Pagamento pela quantia {{amount}} R$ registrado",
         "EscolaLms\\Payments\\Events\\PaymentSuccess":
           "Pagamento pelo {{name}} produto pela quantia {{amount}} R$ bem-sucedido",
         // COURSE
@@ -966,7 +966,7 @@ const resources = {
         SettingPackageConfigUpdated: "Setting package config updated",
         CourseTutorAssigned: "Course tutor assigned",
         CourseStarted: "Course started",
-        // NEW TRANLATIONS
+        // NEW TRANSLATIONS
         // STATIONARY EVENTS
         "EscolaLms\\StationaryEvents\\Events\\StationaryEventAssigned":
           "You are assigned to stationary event {{name}}",
