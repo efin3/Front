@@ -56,26 +56,31 @@ const CoursesDetailsSidebar: React.FC<Props> = ({
     }
   }, [currentCourse, user.value, userCourseAccess, userOwnThisCourse]);
 
+  const isFree = course.product?.price === 0 || !course.product?.price;
+
   return !isMobile ? (
     <PricingCard>
       <Title level={4} as="h2">
         {course.title}
       </Title>
-      <ProductPrices
-        price={course.product?.price}
-        taxRate={course.product?.tax_rate}
-        oldPrice={course.product?.price_old}
-      />
+      {!isFree && (
+        <ProductPrices
+          price={course.product?.price}
+          taxRate={course.product?.tax_rate}
+          oldPrice={course.product?.price_old}
+        />
+      )}
       {progress.loaded ? (
         <CourseDetailsSidebarButtons
           onRequestAccess={onRequestAccess}
           course={course}
           userOwnThisCourse={userOwnThisCourse}
+          isFree={isFree}
         />
       ) : (
         <ContentLoader />
       )}
-      <Text size={"12"}> {t("CoursePage.30Days")}</Text>
+      {!isFree && <Text size={"12"}> {t("CoursePage.30Days")}</Text>}
       <div className="pricing-card-features">
         {course.duration && (
           <IconText
@@ -159,22 +164,24 @@ const CoursesDetailsSidebar: React.FC<Props> = ({
         {course.title}
       </Title>
       <div className="pricing-card-footer">
-        <div>
-          {course.product?.price_old && (
-            <div className="pricing-card-discount">
-              <Title level={5} as={"h5"}>
-                {formatPrice(
-                  course.product?.price_old,
-                  course.product?.tax_rate
-                )}{" "}
-                zł
-              </Title>
-            </div>
-          )}
-          <Title level={4} as={"h4"}>
-            {formatPrice(course.product?.price, course.product?.tax_rate)} zł
-          </Title>
-        </div>
+        {!isFree && (
+          <div>
+            {course.product?.price_old && (
+              <div className="pricing-card-discount">
+                <Title level={5} as={"h5"}>
+                  {formatPrice(
+                    course.product?.price_old,
+                    course.product?.tax_rate
+                  )}{" "}
+                  zł
+                </Title>
+              </div>
+            )}
+            <Title level={4} as={"h4"}>
+              {formatPrice(course.product?.price, course.product?.tax_rate)} zł
+            </Title>
+          </div>
+        )}
         <div>
           {progress.loaded ? (
             <CourseDetailsSidebarButtons
