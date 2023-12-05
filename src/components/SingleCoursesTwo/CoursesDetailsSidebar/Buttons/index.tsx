@@ -56,7 +56,11 @@ const CourseAccessButton: React.FC<CourseAccessButtonProps> = ({
 
   if (!currentCourseAccess) {
     if (isFree) {
-      return <Button style={{ marginTop: "0.5rem" }}>{t("Enroll")}</Button>;
+      return (
+        <Button style={{ marginTop: "0.5rem" }} onClick={onRequestAccess}>
+          {t("Enroll")}
+        </Button>
+      );
     }
     return (
       <>
