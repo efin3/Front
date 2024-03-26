@@ -13,6 +13,7 @@ import { isMobile } from "react-device-detect";
 import ScormPlayer from "./Players/ScormPlayer";
 import styled from "styled-components";
 import GiftQuizPlayer from "@escolalms/components/lib/components/quizzes";
+import { GamePlayer } from "@/components/GamePlayer";
 
 const StyledPdfPlayer = styled(PdfPlayer)`
   .course-pdf-player {
@@ -88,10 +89,11 @@ export const CourseProgramContent: React.FC<{
         );
       case API.TopicType.RichText:
         return (
-          <TextPlayer
-            value={topic.topicable.value}
-            resources={topic.resources}
-          />
+          // <TextPlayer
+          //   value={topic.topicable.value}
+          //   resources={topic.resources}
+          // />
+          <GamePlayer value={topic.topicable.value} json={topic.json} />
         );
       case API.TopicType.Video:
         return (
